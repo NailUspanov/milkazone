@@ -1,11 +1,8 @@
 <div class="wrapper">
-  <app-image src="assets/img/manipulation/Content.svg"> </app-image>
-  <div class="truba">
-    <content>
-      <div class="title">{{ 1 }} ПС</div>
-      <div class="properties">
-        <div class="property"></div>
-      </div>
-    </content>
+  <app-image src="assets/img/manipulation/Content.svg"></app-image>
+
+  <div *ngFor="let bearing of bearingsHardCode; let index = index">
+    <app-baering-info [index]="index" [modelBearingInfo]="bearing">
+    </app-baering-info>
   </div>
 </div>
