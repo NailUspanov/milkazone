@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <app-image src="assets/img/manipulation/Content.svg"></app-image>
+  <div *ngFor="let bearing of bearingsHardCode; let index = index">
+    <app-baering-info [index]="index" [modelBearingInfo]="bearing">
+    </app-baering-info>
+  </div>
+  <app-progress-bar
+    class="maslobak"
+    [value]="maslobak"
+    label="уровень масла, %"
+    [scaleStep]="20"
+  ></app-progress-bar
+  ><app-progress-bar
+    class="temperature"
+    [value]="temperature"
+    label="температура газа, °C"
+    [scaleStep]="10"
+    [maxScale]="200"
+    [isScale]="false"
+  ></app-progress-bar>
+  <app-progress-bar
+    class="pressure"
+    [value]="pressure"
+    label="температура газа, °C"
+    [scaleStep]="1"
+    [maxScale]="6"
+    [isScale]="true"
+  ></app-progress-bar>
+</div>

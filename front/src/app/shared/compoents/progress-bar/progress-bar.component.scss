@@ -1,0 +1,52 @@
+.progress-bar {
+  height: auto;
+  width: fit-content;
+  border: 2px solid rgb(142, 149, 149);
+  padding: 5px;
+  width: 200px;
+  background: rgb(240, 242, 246);
+
+  .scale {
+    width: 100%;
+    height: 20px;
+    display: flex;
+    span {
+      border-left: 1px solid rgb(211, 221, 221);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &:last-child {
+        border-right: 1px solid rgb(211, 221, 221);
+      }
+    }
+  }
+
+  .line {
+    background: rgb(227, 141, 107);
+    height: 40px;
+    width: 100%;
+    position: relative;
+  }
+
+  .progress-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+
+    .info {
+        z-index: 10;
+        margin-left: 10px;
+        position: absolute;
+
+        .value {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .label{
+            font-size: 11px;
+        }
+    }
+  }
+}

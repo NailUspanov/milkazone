@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.property {
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  padding: 2px 10px;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.warning {
+  background-color: rgb(240, 187, 78);
+}
+
+.alarm {
+  background-color: rgb(218, 98, 65);
+}

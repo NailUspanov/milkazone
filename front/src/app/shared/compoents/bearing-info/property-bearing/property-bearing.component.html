@@ -1,0 +1,40 @@
+<div class="container">
+  <div
+    class="property {{
+      getStatusProperty(heatingTemperature, heatingTemperature.temperatureValue)
+    }}"
+    *ngIf="heatingTemperature"
+  >
+    <span>T, °C</span>
+    <span>{{ heatingTemperature.temperatureValue }}</span>
+  </div>
+  <div
+    class="property {{
+      getStatusProperty(vibration.axial, vibration.axial.value)
+    }}"
+    *ngIf="vibration"
+  >
+    <span>В, мм/с</span>
+    <span>{{ vibration.axial.value }}</span>
+  </div>
+
+  <div
+    class="property {{
+      getStatusProperty(vibration.horizontal, vibration.horizontal.value)
+    }}"
+    *ngIf="vibration"
+  >
+    <span>Г, мм/с</span>
+    <span>{{ vibration.horizontal.value }}</span>
+  </div>
+
+  <div
+    class="property {{
+      getStatusProperty(vibration.vercal, vibration.vercal.value)
+    }}"
+    *ngIf="vibration"
+  >
+    <span>О, мм/с</span>
+    <span>{{ vibration.vercal.value }}</span>
+  </div>
+</div>

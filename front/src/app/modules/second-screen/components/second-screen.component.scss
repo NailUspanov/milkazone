@@ -1,0 +1,51 @@
+.wrapper {
+  app-image ::ng-deep svg {
+    path {
+      display: block;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .truba {
+      fill: aqua;
+    }
+  }
+  .maslobak {
+    position: absolute;
+    left: 1015px;
+    top: 162px;
+  }
+
+  .temperature {
+    position: absolute;
+    top: 241px;
+    left: 555px;
+
+    ::ng-deep {
+      .progress-bar {
+        width: 159px;
+        height: 45px;
+
+        .line {
+          height: 30px;
+          background: rgb(180, 185, 185);
+        }
+      }
+    }
+  }
+
+  .pressure {
+    position: absolute;
+    top: 267px;
+    left: 1480px;
+    
+    ::ng-deep {
+        .progress-bar {
+          width: 231px;
+    
+        }
+      }
+  }
+}

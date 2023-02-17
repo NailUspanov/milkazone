@@ -1,0 +1,27 @@
+<ng-template #templateItem let-item="item">
+    <span class="label">{{item.label}}</span>
+    <div>
+        <i class="arrow pi" *ngIf="item.items" [class]="isChildVisible ? 'pi-angle-up' : 'pi-angle-down'">
+        </i>
+        <i [class]="item.icon"></i>
+    </div>
+    <span class="menuitem-badge" *ngIf="item.badge">{{item.badge}}</span>
+</ng-template>
+
+<li *ngIf="isItemVisible" [class.active]="hasChild && isChildVisible" [class]="item?.badgeStyleClass">
+    <a *ngIf="item?.url" class="link clickable" [href]="item?.url">
+        <ng-container [ngTemplateOutlet]="templateItem" [ngTemplateOutletContext]="{item: item}">
+        </ng-container>
+    </a>
+
+    <a *ngIf="!item?.url" class="link clickable" (click)="toggleChildVisibility()" routerLinkActive="link--active"
+        [class.link--child-active]="hasActiveChild" [class.link--child]="hasChild && isChildVisible"
+        [routerLink]="item?.routerLink">
+        <ng-container [ngTemplateOutlet]="templateItem" [ngTemplateOutletContext]="{item: item}">
+        </ng-container>
+    </a>
+
+    <ul class="child-list" *ngIf="isChildVisible">
+        <app-menu-item class="child-item" *ngFor="let child of item?.items" [item]="child"></app-menu-item>
+    </ul>
+</li>

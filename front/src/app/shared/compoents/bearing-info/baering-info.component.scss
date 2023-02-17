@@ -1,0 +1,59 @@
+.bearing {
+  width: 118px;
+  background-color: rgb(68, 79, 79);
+  position: absolute;
+  border-radius: 10px;
+
+  content {
+    padding: 7px 10px;
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      text-align: center;
+      border: 1px solid rgb(114, 123, 123);
+      padding: 1px 10px;
+      color: #fff;
+      font-weight: 500;
+      line-height: 1.2rem;
+    }
+  }
+}
+
+.num1 {
+  top: 564px;
+  left: 1471px;
+}
+
+.num2 {
+  top: 564px;
+  left: 1142px;
+}
+.num3 {
+  top: 287px;
+  left: 980px;
+}
+.num4 {
+  top: 287px;
+  left: 835px;
+}
+.num5 {
+  top: 564px;
+  left: 988px;
+}
+.num6 {
+  top: 559px;
+  left: 837px;
+}
+.num7 {
+  top: 641px;
+  left: 821px;
+}
+.num8 {
+  top: 552px;
+  left: 372px;
+}
+.num9 {
+  top: 458px;
+  left: 364px;
+}
