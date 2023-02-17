@@ -1,0 +1,10 @@
+@import '../../../../styles/core.scss';
+:host {
+    footer {
+        width: 100%;
+        height: 64px;
+        background-color: #fff;
+        padding: 20px 24px;
+        border: 1px solid $color-divider;
+    }
+}

@@ -1,0 +1,90 @@
+@import "../../../../styles/core.scss";
+:host {
+    .sidemenu {
+        width: $nav-width;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: -$nav-offset-min;
+        z-index: 10;
+        background-size: cover;
+        display: flex;
+        border-radius: 4px;
+        border: 1px solid $color-divider;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow-y: auto;
+
+        &-transition {
+            transition: left 0.3s ease;
+        }
+
+        &:hover {
+            left: 0;
+
+            header .fix-button {
+                display: block !important;
+
+                @include mobile {
+                    display: none;
+                }
+            }
+        }
+
+        &-fixed {
+            left: 0;
+        }
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #9ccc65;
+            border-radius: 10px;
+        }
+
+        .logo app-image {
+            margin-left: 70px;
+        }
+
+        header {
+            height: 70px;
+            background-color: rgba(36, 50, 59, 0.5);
+            padding-top: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+        
+
+            .fix-button {
+                background-color: $color-grey;
+                border: 2px solid #fff;
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                margin-right: 23px;
+
+                @include mobile {
+                    display: none;
+                }
+
+                &--active {
+                    background-color: $color-green;
+
+                    @include mobile {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+    }
+}

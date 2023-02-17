@@ -1,0 +1,25 @@
+@import "../../../../styles/core.scss";
+
+:host {
+    .wrapper {
+        height: 100%;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding-left: $nav-width - $nav-offset-min;
+        transition: padding-left 0.5s ease;
+
+        &-min {
+            padding-left: $nav-width;
+        }
+
+        main {
+            flex: 1 0 auto;
+            padding: 20px;
+            background: $color-layout;
+        }
+    }
+}
