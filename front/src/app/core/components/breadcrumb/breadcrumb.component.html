@@ -1,0 +1,15 @@
+<div class="layout-breadcrumb">
+  <ul>
+    <li>
+      <a routerLink="">
+        <i class="pi pi-home"></i>
+      </a>
+    </li>
+
+    <app-breadcrumb-item
+      *ngFor="let item of items; let i = index"
+      [item]="item"
+      [last]="i === items.length"
+    ></app-breadcrumb-item>
+  </ul>
+</div>

@@ -1,0 +1,40 @@
+.wrapper {
+    
+  .truba {
+    width: 118px;
+    height: 133px;
+    background-color: rgb(68, 79, 79);
+    position: absolute;
+    top: 552px;
+    left: 371px;
+    border-radius: 10px;
+
+    content {
+      padding: 7px 10px;
+      display: flex;
+      flex-direction: column;
+      .title {
+        text-align: center;
+        border: 1px solid rgb(114, 123, 123);
+        padding: 1px 10px;
+        color: #fff;
+        font-weight: 500;
+        line-height: 1.2rem;
+      }
+    }
+  }
+
+  app-image ::ng-deep svg {
+    path {
+      display: block;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .truba {
+      fill: aqua;
+    }
+  }
+}
