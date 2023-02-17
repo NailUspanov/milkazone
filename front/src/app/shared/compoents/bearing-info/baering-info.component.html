@@ -1,0 +1,12 @@
+<div class="bearing num{{ index + 1 }}" *ngIf="modelBearingInfo">
+  <content>
+    <div class="title">{{ index + 1 }} ПС</div>
+    <div class="properties">
+      <app-property-bearing
+        [heatingTemperature]="modelBearingInfo.heatingTemperature"
+        [vibration]="modelBearingInfo.vibration!"
+      >
+      </app-property-bearing>
+    </div>
+  </content>
+</div>
