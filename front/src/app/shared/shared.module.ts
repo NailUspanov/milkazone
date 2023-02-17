@@ -7,6 +7,8 @@ import { BaeringInfoComponent } from './compoents/bearing-info/baering-info.comp
 import { PropertyBearingComponent } from './compoents/bearing-info/property-bearing/property-bearing.component';
 import { ImageComponent } from './compoents/form/image/image.component';
 import { MachineInfoComponent } from './compoents/machine-info/machine-info.component';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { ProgressBarComponent } from './compoents/progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,7 @@ import { MachineInfoComponent } from './compoents/machine-info/machine-info.comp
     MachineInfoComponent,
     BaeringInfoComponent,
     PropertyBearingComponent,
+    ProgressBarComponent,
   ],
   imports: [
     CommonModule,
@@ -21,7 +24,13 @@ import { MachineInfoComponent } from './compoents/machine-info/machine-info.comp
     AngularSvgIconModule.forRoot(),
     AngularSvgIconModule,
     PanelModule,
+    ProgressBarModule,
   ],
-  exports: [ImageComponent, MachineInfoComponent, BaeringInfoComponent],
+  exports: [
+    ImageComponent,
+    MachineInfoComponent,
+    BaeringInfoComponent,
+    ProgressBarComponent,
+  ],
 })
 export class SharedModule {}
