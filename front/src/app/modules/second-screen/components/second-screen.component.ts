@@ -238,4 +238,8 @@ export class SecondScreenComponent implements OnInit {
   }
 
   bearingsHardCode: BearingInfo[] | null = null;
+  temperature: number = 45;
+  pressure: number = 2.5;
+
+  maslobak: number = 34.3;
 }
