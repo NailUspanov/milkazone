@@ -9,9 +9,12 @@ import { ImageComponent } from './compoents/form/image/image.component';
 import { MachineInfoComponent } from './compoents/machine-info/machine-info.component';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { ProgressBarComponent } from './compoents/progress-bar/progress-bar.component';
-import {ExhausterInfoComponent} from "./compoents/machine-info/exhauster-info/exhauster-info.component";
-import {DividerModule} from "primeng/divider";
-import {AccordionModule} from "primeng/accordion";
+import { ExhausterInfoComponent } from './compoents/machine-info/exhauster-info/exhauster-info.component';
+import { DividerModule } from 'primeng/divider';
+import { AccordionModule } from 'primeng/accordion';
+import { CalendarModule } from 'primeng/calendar';
+import { DatepickerComponent } from './compoents/form/datepicker/datepicker.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,8 @@ import {AccordionModule} from "primeng/accordion";
     BaeringInfoComponent,
     PropertyBearingComponent,
     ProgressBarComponent,
-    ExhausterInfoComponent
+    ExhausterInfoComponent,
+    DatepickerComponent,
   ],
   imports: [
     CommonModule,
@@ -31,13 +35,16 @@ import {AccordionModule} from "primeng/accordion";
     ProgressBarModule,
     DividerModule,
     AccordionModule,
+    CalendarModule,
+    FormsModule,
   ],
   exports: [
     ImageComponent,
     MachineInfoComponent,
     BaeringInfoComponent,
     ProgressBarComponent,
-    ExhausterInfoComponent
+    ExhausterInfoComponent,
+    DatepickerComponent,
   ],
 })
 export class SharedModule {}

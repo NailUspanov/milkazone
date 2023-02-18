@@ -1,5 +1,5 @@
 <p-tabView>
-  <p-tabPanel header="Мнемосхема" [headerStyle]="'background: #000'">
+  <p-tabPanel header="Мнемосхема">
     <div class="wrapper">
       <div *ngFor="let bearing of bearingsHardCode; let index = index">
         <app-baering-info [index]="index" [modelBearingInfo]="bearing">
@@ -31,5 +31,7 @@
       ></app-progress-bar>
     </div>
   </p-tabPanel>
-  <p-tabPanel header="График"> </p-tabPanel>
+  <p-tabPanel header="График">
+    <app-bar-graph></app-bar-graph>
+  </p-tabPanel>
 </p-tabView>

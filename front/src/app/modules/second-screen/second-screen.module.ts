@@ -4,9 +4,25 @@ import { SecondScreenComponent } from './components/second-screen.component';
 import { SecondRoutingModule } from './second-screen.routing';
 import { TabViewModule } from 'primeng/tabview';
 import { NgModule } from '@angular/core';
+import { GraphComponent } from './components/graph/graph.component';
+import { PanelModule } from 'primeng/panel';
+import { ChartModule } from 'primeng/chart';
+import { AccordionModule } from 'primeng/accordion';
+import { CheckboxModule } from 'primeng/checkbox';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [SecondScreenComponent],
-  imports: [CommonModule, SharedModule, SecondRoutingModule, TabViewModule],
+  declarations: [SecondScreenComponent, GraphComponent],
+  imports: [
+    CommonModule,
+    SharedModule,
+    SecondRoutingModule,
+    TabViewModule,
+    PanelModule,
+    FormsModule,
+    ChartModule,
+    AccordionModule,
+    CheckboxModule,
+  ],
 })
 export class SecondModule {}

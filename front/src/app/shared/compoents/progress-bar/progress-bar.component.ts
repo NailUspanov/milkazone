@@ -20,7 +20,11 @@ export class ProgressBarComponent {
 
   get ruler() {
     let res = [];
-    for (let num = 0; num <= this.maxScale; num += this.scaleStep) {
+    for (
+      let num = this.scaleStep;
+      num <= this.maxScale;
+      num += this.scaleStep
+    ) {
       res.push(num);
     }
     return res;
