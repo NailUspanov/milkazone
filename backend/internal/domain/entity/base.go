@@ -25,6 +25,11 @@ type Base struct {
 	ExhausterNum int       `json:"exhauster_num"`
 }
 
+type BaseRequest struct {
+	Base
+	BaseValues
+}
+
 func (b Base) TableName() string {
 	return "base"
 }

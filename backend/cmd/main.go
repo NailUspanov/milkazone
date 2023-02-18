@@ -6,14 +6,13 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/Shopify/sarama"
-	"github.com/gorilla/websocket"
 	"io/ioutil"
 	"log"
 	"milkazone/internal/adapters/consumers/excauster_consumer"
 	"milkazone/internal/adapters/postgres"
+	"milkazone/internal/adapters/websocket"
 	"milkazone/internal/domain/usecase"
 	"milkazone/internal/infrastructure/env"
-	"net/http"
 	"os"
 	"os/signal"
 	"strings"
@@ -28,27 +27,23 @@ func main() {
 		fmt.Println(err.Error())
 		return
 	}
+	log.Println("соединение с бд")
+	//Websocket
 
-	//if err != nil {
-	//	logrus.Fatalf("failed to initialize db %s", err.Error())
-	//}
 	fmt.Println("YOU GAY")
 	usecase := usecase.NewExcausterUseCase(*postgres.NewRepository(db))
 	usecase.Process(nil)
 
-	////прокидываю инстанс бд и создаю репозитории
-	//repos := repository.NewRepository(db)
-	////прокидываю репозитории в сервисы
-	//services := service.NewService(repos)
-	////сервисы в хендлеры
-	//handlers := rest.NewHandler(services)
+	handler := websocket.NewHandler(usecase)
+	srv := new(Server)
 
-	////запускаю сервер на порту 8000
-	//srv := new(Server)
-	//if err := srv.Run(viper.GetString("port"), handlers.InitRoutes()); err != nil {
-	//	logrus.Fatalf("error occured while runnning http server: %s", err.Error())
-	//}
+	go func() {
+		if err := srv.Run(":8000", handler); err != nil {
+			log.Fatalf("error occured while runnning http server: %s", err.Error())
+		}
+	}()
 
+	log.Println("Websocket")
 	//Kafka
 
 	brokers := env.KafkaBrokers
@@ -106,7 +101,6 @@ func main() {
 	signal.Notify(signals, os.Interrupt)
 
 	// Count the number of processed messages
-	msgCount := 0
 
 	// Get signal to finish
 	doneCh := make(chan struct{})
@@ -118,8 +112,8 @@ func main() {
 			case msg := <-consumer.Messages():
 				var s map[string]float64
 				json.Unmarshal(msg.Value, &s)
-				usecase.SaveValues(s)
-				msgCount++
+				go usecase.SaveValues(s)
+				websocket.WriteWS(msg.Value)
 				fmt.Println("Received messages", string(msg.Key), string(msg.Value))
 			case <-signals:
 				fmt.Println("Interrupt is detected")
@@ -129,35 +123,7 @@ func main() {
 	}()
 
 	<-doneCh
-	fmt.Println("Processed", msgCount, "messages")
 
-	//Websocket
-	http.HandleFunc("/", info)
-	err = http.ListenAndServe(":8080", nil)
-	if err != nil {
-		log.Fatal("ListenAndServe: ", err)
-	}
-}
+	log.Println("Kafka")
 
-var upgrader = websocket.Upgrader{
-	CheckOrigin: func(r *http.Request) bool {
-		return true // Пропускаем любой запрос
-	},
-}
-
-func info(w http.ResponseWriter, r *http.Request) {
-	c, err := upgrader.Upgrade(w, r, nil)
-	if err != nil {
-		log.Print("upgrade:", err)
-		return
-	}
-	defer c.Close()
-	for {
-		message := "Hello"
-		err = c.WriteMessage(websocket.TextMessage, []byte(message))
-		if err != nil {
-			log.Println("write:", err)
-			break
-		}
-	}
 }
