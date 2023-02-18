@@ -113,7 +113,7 @@ func main() {
 				var s map[string]float64
 				json.Unmarshal(msg.Value, &s)
 				go usecase.SaveValues(s)
-
+				websocket.WriteWS(msg.Value)
 				fmt.Println("Received messages", string(msg.Key), string(msg.Value))
 			case <-signals:
 				fmt.Println("Interrupt is detected")
