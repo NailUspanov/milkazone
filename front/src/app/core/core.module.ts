@@ -13,6 +13,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MenuItemComponent } from './components/sidemenu/menu-item/menu-item.compoennt';
 import { SharedModule } from '../shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
+import { DataService } from './service/websocket.service';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,6 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     HttpClientModule,
   ],
-  providers: [AppNavigationService],
+  providers: [AppNavigationService, DataService],
 })
 export class CoreModule {}

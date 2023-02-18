@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StoreApp } from '../../store/app.store';
 
 @Component({
@@ -6,6 +6,10 @@ import { StoreApp } from '../../store/app.store';
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
 })
-export class CommonLayoutComponent {
+export class CommonLayoutComponent implements OnInit {
   constructor(public storeApp: StoreApp) {}
+
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
 }
