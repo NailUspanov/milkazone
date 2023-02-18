@@ -7,6 +7,9 @@ import { BaeringInfoComponent } from './compoents/bearing-info/baering-info.comp
 import { PropertyBearingComponent } from './compoents/bearing-info/property-bearing/property-bearing.component';
 import { ImageComponent } from './compoents/form/image/image.component';
 import { MachineInfoComponent } from './compoents/machine-info/machine-info.component';
+import {ExhausterInfoComponent} from "./compoents/machine-info/exhauster-info/exhauster-info.component";
+import {DividerModule} from "primeng/divider";
+import {AccordionModule} from "primeng/accordion";
 
 @NgModule({
   declarations: [
@@ -14,6 +17,7 @@ import { MachineInfoComponent } from './compoents/machine-info/machine-info.comp
     MachineInfoComponent,
     BaeringInfoComponent,
     PropertyBearingComponent,
+    ExhausterInfoComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +25,9 @@ import { MachineInfoComponent } from './compoents/machine-info/machine-info.comp
     AngularSvgIconModule.forRoot(),
     AngularSvgIconModule,
     PanelModule,
+    DividerModule,
+    AccordionModule,
   ],
-  exports: [ImageComponent, MachineInfoComponent, BaeringInfoComponent],
+  exports: [ImageComponent, MachineInfoComponent, BaeringInfoComponent, ExhausterInfoComponent],
 })
 export class SharedModule {}
