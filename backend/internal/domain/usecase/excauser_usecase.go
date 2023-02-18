@@ -8,6 +8,7 @@ import (
 	"milkazone/internal/adapters/postgres"
 	"milkazone/internal/domain/entity"
 	"strings"
+	"time"
 )
 
 type ExcausterUseCase struct {
@@ -107,4 +108,18 @@ func (e ExcausterUseCase) Save(data t) error {
 		Bearing:      data.Bearing,
 		ExhausterNum: data.ExhausterNum,
 	})
+}
+
+func (e ExcausterUseCase) SaveValues(s map[string]float64) error {
+	var data entity.BaseValues
+	for key, val := range s {
+		data = entity.BaseValues{
+			Id:       uuid.New(),
+			Value:    fmt.Sprintf("%f", val),
+			Signal:   key,
+			Datetime: time.Now(),
+		}
+		e.repository.BaseValRepo.Save(data)
+	}
+	return nil
 }

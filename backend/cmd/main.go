@@ -3,6 +3,7 @@ package main
 import (
 	"crypto/tls"
 	"crypto/x509"
+	"encoding/json"
 	"fmt"
 	"github.com/Shopify/sarama"
 	"github.com/gorilla/websocket"
@@ -68,7 +69,7 @@ func main() {
 	conf.Net.SASL.Mechanism = sarama.SASLMechanism(sarama.SASLTypeSCRAMSHA512)
 
 	certs := x509.NewCertPool()
-	pemPath := "C:\\Users\\popsm\\.kafka\\YandexCA.crt"
+	pemPath := "/usr/local/share/ca-certificates/Yandex/YandexCA.crt"
 	pemData, err := ioutil.ReadFile(pemPath)
 	if err != nil {
 		fmt.Println("Couldn't load cert: ", err.Error())
@@ -115,6 +116,9 @@ func main() {
 			case err := <-consumer.Errors():
 				fmt.Println(err)
 			case msg := <-consumer.Messages():
+				var s map[string]float64
+				json.Unmarshal(msg.Value, &s)
+				usecase.SaveValues(s)
 				msgCount++
 				fmt.Println("Received messages", string(msg.Key), string(msg.Value))
 			case <-signals:
