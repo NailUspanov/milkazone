@@ -7,6 +7,7 @@ import (
 )
 
 var (
+	//DB
 	DbHost        = Getter("DB_HOST", "")
 	DbPort        = Getter("DB_PORT", "")
 	DbUser        = Getter("DB_USER", "")
@@ -15,7 +16,15 @@ var (
 	DbSslMode     = Getter("DB_SSL_MODE", "disable")
 	DbSslCertPath = Getter("DB_SSL_CERT_PATH", "")
 
+	//Server
 	HttpPort = fmt.Sprintf(":%s", Getter("HTTP_PORT", "8080"))
+
+	//Kafka
+	KafkaBrokers  = Getter("K_BROKERS", "")
+	KafkaClientID = Getter("K_CLIENT_ID", "")
+	KafkaUser     = Getter("K_USER", "")
+	KafkaPassword = Getter("K_PASSWORD", "")
+	KafkaTopic    = Getter("K_TOPIC", "")
 )
 
 // Getter -

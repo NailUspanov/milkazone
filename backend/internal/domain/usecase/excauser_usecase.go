@@ -39,7 +39,7 @@ type t struct {
 
 func readExcel() map[int]map[string][]t {
 	mExData := make(map[int]map[string][]t)
-	f, err := excelize.OpenFile("backend/mapping.xlsx")
+	f, err := excelize.OpenFile("backend/")
 	if err != nil {
 		return nil
 	}
