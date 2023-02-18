@@ -1,0 +1,14 @@
+<li *ngIf="currentRouteSame">/</li>
+<li *ngIf="currentRouteSame">
+  <a *ngIf="item?.routerLink" [routerLink]="item?.routerLink">
+    <i [class]="item?.icon"></i>
+    {{ item?.label }}
+  </a>
+</li>
+
+<ng-container *ngIf="item?.items?.length">
+  <app-breadcrumb-item
+    *ngFor="let child of item?.items"
+    [item]="child"
+  ></app-breadcrumb-item>
+</ng-container>

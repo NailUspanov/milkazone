@@ -1,0 +1,153 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~primeicons/primeicons.css";
+@import "~primeng/resources/primeng.min.css";
+// @import "~primeflex/primeflex.css";
+@import "~primeng/resources/themes/lara-light-blue/theme.css";
+@import "./styles/variables.scss";
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: $font-family;
+    font-size: $font-size;
+    color: $color-text;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &:visited {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+mark {
+    font-family: inherit;
+    position: relative;
+    line-height: 120%;
+    background-color: transparent;
+    background-image: linear-gradient(transparent, rgb(255, 222, 126), transparent);
+}
+
+img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.p-float-label .p-inputwrapper-filled~label,
+.p-float-label .p-inputwrapper-focus~label,
+.p-float-label .p-filled~label {
+    top: -0.45rem !important;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.p-dialog {
+    max-width: 700px;
+    width: 100%;
+
+    &-mask {
+        background-color: rgba(77, 77, 77, 0.7);
+    }
+
+    &-content {
+        padding: 0.2rem 1.5rem 2rem !important;
+    }
+}
+
+// Для массивов formArray
+fieldset {
+    border: none;
+}
+
+:not(form):not(fieldset).ng-invalid {
+    .ng-touched~label {
+        color: #ff8484;
+    }
+
+    .ng-touched,
+    .ng-touched:hover {
+        border-color: #ff8484;
+
+        input,
+        input:hover {
+            border-color: #ff8484;
+        }
+    }
+}
+
+[ng-reflect-required=true]~label {
+    font-weight: bold;
+}
+
+.common-filters {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 15px;
+
+    .filter {
+        display: block;
+        width: 300px;
+        margin-bottom: 20px;
+    }
+
+    .filter-chips .p-chips {
+        width: 100%;
+        display: block !important;
+    }
+
+    .actions {
+        display: flex;
+        justify-content: center;
+        padding: 7px 0;
+
+        .action-btn {
+            &:first-child {
+                margin-right: 10px;
+            }
+
+            &:last-child {
+                margin-left: 10px;
+            }
+        }
+    }
+}

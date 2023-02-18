@@ -1,0 +1,28 @@
+<nav
+  class="sidemenu"
+  [class.sidemenu-transition]="rendered"
+  [style.background-image]="'url(assets/img/background.jpg)'"
+  [class.sidemenu-fixed]="storeApp.isSideMenuFixed"
+>
+  <div class="top">
+    <header>
+      <a routerLink="/" class="logo">
+        <app-image src="assets/img/logo.svg"></app-image>
+      </a>
+
+      <button
+        class="fix-button clickable"
+        [class.hidden]="!storeApp.isSideMenuFixed"
+        [class.fix-button--active]="storeApp.isSideMenuFixed"
+        (click)="storeApp.toogleSideMenuFixed()"
+      ></button>
+    </header>
+
+    <ul class="top-items">
+      <app-menu-item
+        *ngFor="let item of menuItems"
+        [item]="item"
+      ></app-menu-item>
+    </ul>
+  </div>
+</nav>

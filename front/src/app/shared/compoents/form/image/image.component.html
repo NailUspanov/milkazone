@@ -1,0 +1,17 @@
+<ng-container *ngIf="src">
+  <img
+    class="hide-text"
+    *ngIf="!isSvg"
+    [attr.width]="width"
+    [attr.height]="height"
+    [src]="src"
+    [attr.alt]="alt"
+  />
+  <svg-icon
+    *ngIf="isSvg"
+    [attr.width]="width"
+    [attr.height]="height"
+    [src]="src"
+    [attr.alt]="alt"
+  ></svg-icon>
+</ng-container>

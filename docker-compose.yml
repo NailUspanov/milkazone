@@ -1,0 +1,33 @@
+version: '3.4'
+
+services:
+  frontend:
+    build:
+      context: ./front
+      dockerfile: ./Dockerfile
+    command: npm run start
+    ports:
+      - "4200:4200"
+    restart: always
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ./Dockerfile
+    restart: always
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/.env
+
+  postgres:
+    image: 'postgres:latest'
+    container_name: postgresdb
+    ports:
+      - "5436:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: urlsdb
+    volumes:
+      - ./db-data:/var/lib/postgresql/data/

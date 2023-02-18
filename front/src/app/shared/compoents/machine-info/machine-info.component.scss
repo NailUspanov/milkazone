@@ -1,0 +1,18 @@
+.container{
+  width: 586px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.header {
+  height: 40px;
+  padding: 10px 20px;
+  background: #F4F4F4;
+  display: flex;
+  align-items: center;
+  color: #6E6E6D;
+}
