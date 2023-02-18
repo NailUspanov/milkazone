@@ -4,7 +4,7 @@ services:
   frontend:
     build:
       context: ./front
-      dockerfile: ./front/Dockerfile
+      dockerfile: ./Dockerfile
     command: npm run start
     ports:
       - "4200:4200"
@@ -13,7 +13,7 @@ services:
   backend:
     build:
       context: ./backend
-      dockerfile: ./backend/Dockerfile
+      dockerfile: ./Dockerfile
     restart: always
     ports:
       - "8000:8000"

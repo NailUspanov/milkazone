@@ -5,20 +5,20 @@ import (
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
-	"log"
-	"os"
+	"milkazone/internal/domain/entity"
 )
 
 // Конструктор
 func NewDatabase(dsn string) (*gorm.DB, error) {
 	cnf := &gorm.Config{}
 
-	cnf.Logger = logger.New(log.New(os.Stdout, "\r\n", log.LstdFlags), logger.Config{
-		SlowThreshold:             200,
-		Colorful:                  true,
-		IgnoreRecordNotFoundError: true,
-		LogLevel:                  logger.Info,
-	})
+	cnf.Logger = logger.Default
+	//cnf.Logger = logger.New(log.New(os.Stdout, "\r\n", log.LstdFlags), logger.Config{
+	//	SlowThreshold:             200,
+	//	Colorful:                  true,
+	//	IgnoreRecordNotFoundError: true,
+	//	LogLevel:                  logger.Info,
+	//})
 
 	db, err := gorm.Open(postgres.Open(dsn), cnf)
 	if err != nil {
@@ -26,6 +26,16 @@ func NewDatabase(dsn string) (*gorm.DB, error) {
 	}
 
 	err = db.Use(extraClausePlugin.New())
+	if err != nil {
+		return nil, err
+	}
+
+	models := []any{
+		&entity.Base{},
+		&entity.BaseValues{},
+	}
+
+	err = db.AutoMigrate(models...)
 	if err != nil {
 		return nil, err
 	}
