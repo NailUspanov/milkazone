@@ -7,6 +7,7 @@ import (
 	"github.com/xuri/excelize/v2"
 	"milkazone/internal/adapters/postgres"
 	"milkazone/internal/domain/entity"
+	"milkazone/internal/static"
 	"strings"
 	"time"
 )
@@ -24,6 +25,7 @@ func (e ExcausterUseCase) Process(items map[string]float64) {
 	for _, mBearingData := range mExData {
 		for _, data := range mBearingData {
 			for _, v := range data {
+				static.BaseInfo[v.Signal] = BaseTOT(v)
 				e.Save(v)
 			}
 		}
@@ -36,6 +38,16 @@ type t struct {
 	Signal       string `json:"signal"`
 	Bearing      string `json:"bearing"`
 	ExhausterNum int    `json:"exhauster_num"`
+}
+
+func BaseTOT(v t) entity.Base {
+	return entity.Base{
+		Type_:        v.Type_,
+		Code:         v.Code,
+		Signal:       v.Signal,
+		Bearing:      v.Bearing,
+		ExhausterNum: v.ExhausterNum,
+	}
 }
 
 func readExcel() map[int]map[string][]t {
