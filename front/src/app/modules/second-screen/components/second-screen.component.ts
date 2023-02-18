@@ -235,6 +235,12 @@ export class SecondScreenComponent implements OnInit {
         },
       },
     ];
+
+    setInterval(() => {
+      this.temperature += 10;
+    }, 2000);
+
+    this.temperature;
   }
 
   bearingsHardCode: BearingInfo[] | null = null;

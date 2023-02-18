@@ -7,9 +7,8 @@ import { BearingInfo } from 'src/app/core/model/bearing-info';
   styleUrls: ['./baering-info.component.scss'],
 })
 export class BaeringInfoComponent implements OnInit {
-  ngOnInit(): void {
-    console.log(this.modelBearingInfo);
-  }
+  ngOnInit(): void {}
   @Input() index: number = 1;
   @Input() modelBearingInfo: BearingInfo | null = null;
+  status: string = '';
 }

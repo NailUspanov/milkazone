@@ -5,8 +5,12 @@
       <app-property-bearing
         [heatingTemperature]="modelBearingInfo.heatingTemperature"
         [vibration]="modelBearingInfo.vibration!"
+        (status)="status = $event"
       >
       </app-property-bearing>
     </div>
   </content>
 </div>
+<span class="bearing-selector s{{ index + 1 }} {{ status }}">{{
+  index + 1
+}}</span>

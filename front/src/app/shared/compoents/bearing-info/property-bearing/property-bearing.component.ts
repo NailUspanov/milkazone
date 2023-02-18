@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {
   AxialModel,
   BearingInfo,
@@ -16,6 +16,8 @@ import {
 export class PropertyBearingComponent {
   @Input() heatingTemperature: ModelHeatingTemperature | null = null;
   @Input() vibration: VibrationModel | null = null;
+  @Output() status: EventEmitter<string> = new EventEmitter();
+  mainStatus: string = '';
 
   getStatusProperty(
     property:
@@ -26,7 +28,14 @@ export class PropertyBearingComponent {
     value: number
   ) {
     if (value < property.limitValues.warningMin) return '';
-    if (value <= property.limitValues.warningMax) return 'warning';
+    if (value <= property.limitValues.warningMax) {
+      if (!this.mainStatus) {
+        this.mainStatus = 'warning';
+        this.status.emit('warning');
+      }
+      return 'warning';
+    }
+    this.status.emit('alarm');
     return 'alarm';
   }
 }

@@ -6,12 +6,17 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./progress-bar.component.scss'],
 })
 export class ProgressBarComponent {
-  @Input() value: number | null = null;
+  @Input() value: number = 0;
   @Input() scaleStep: number = 10;
   @Input() maxScale: number = 100;
   @Input() label: string = '';
   @Input() isScale: boolean = true;
   constructor() {}
+
+  get scaleValue() {
+    if (this.value > this.maxScale) this.value = this.maxScale;
+    return this.value;
+  }
 
   get ruler() {
     let res = [];

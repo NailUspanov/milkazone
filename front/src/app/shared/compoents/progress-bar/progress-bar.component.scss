@@ -26,6 +26,7 @@
     height: 40px;
     width: 100%;
     position: relative;
+    transition: all 0.3s linear;
   }
 
   .progress-info {
@@ -35,18 +36,19 @@
     justify-content: center;
 
     .info {
-        z-index: 10;
-        margin-left: 10px;
-        position: absolute;
+      z-index: 10;
+      margin-left: 10px;
+      position: absolute;
+      color: #000;
 
-        .value {
-            font-weight: 600;
-            font-size: 14px;
-        }
+      .value {
+        font-weight: 700;
+        font-size: 14px;
+      }
 
-        .label{
-            font-size: 11px;
-        }
+      .label {
+        font-size: 11px;
+      }
     }
   }
 }

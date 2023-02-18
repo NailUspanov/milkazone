@@ -1,15 +1,17 @@
 <div class="progress-bar">
   <div class="scale" *ngIf="isScale">
-    <span *ngFor="let value of ruler" style.width="{{ 100 / maxScale * scaleStep}}%">
+    <span
+      *ngFor="let value of ruler"
+      style.width="{{ (100 / maxScale) * scaleStep }}%"
+    >
       {{ value }}
     </span>
   </div>
   <div class="progress-info">
-  <div class="line" style.width="{{ 100 / maxScale * value!  }}%"></div>
-  <div class="info">
-    <div class="value">{{ value }}</div>
-    <div class="label">{{ label | uppercase }}</div>
-  </div>
-   
+    <div class="line" style.width="{{ (100 / maxScale) * scaleValue! }}%"></div>
+    <div class="info">
+      <div class="value">{{ scaleValue }}</div>
+      <div class="label">{{ label | uppercase }}</div>
+    </div>
   </div>
 </div>
