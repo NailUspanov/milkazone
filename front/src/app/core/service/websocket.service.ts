@@ -1,36 +1,38 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Observer } from 'rxjs';
-import { io } from 'socket.io-client';
-import { Socket } from '../model/socket';
+import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
 
-@Injectable()
-export class DataService {
-  socket: Socket | null = null;
-  observer?: Observer<number>;
+@Injectable({
+  providedIn: 'root',
+})
+export class WebSocketService {
+  private socket$: WebSocketSubject<any>;
 
-  getQuotes(): Observable<number> {
-    this.socket = io('http://localhost:8080');
-
-    this.socket!.on('data', (res: any) => {
-      this.observer!.next(res.data);
-    });
-
-    return this.createObservable();
+  constructor() {
+    this.socket$ = webSocket('ws://localhost:8080/');
   }
 
-  createObservable(): Observable<number> {
-    return new Observable<number>((observer: any) => {
-      this.observer = observer;
-    });
+  subscribe() {
+    this.socket$.subscribe();
   }
 
-  //   private handleError(error: any) {
-  //     console.error('server error:', error);
-  //     if (error.error instanceof Error) {
-  //       let errMessage = error.error.message;
-  //       return Observable.throw(errMessage);
-  //     }
-  //     return Observable.throw(error || 'Socket.io server error');
-  //   }
+  isOPen() {}
+
+  send(message: any) {
+    this.socket$.subscribe(
+      (msg) => {
+        console.log('Message from server?', msg);
+      },
+      (err) => {
+        console.log('Error with websocket connection:', err);
+      },
+      () => {
+        console.log('complete');
+      }
+    );
+    this.socket$.next('my message');
+  }
+
+  getMessages() {
+    return this.socket$.asObservable();
+  }
 }

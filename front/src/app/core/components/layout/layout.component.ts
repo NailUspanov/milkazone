@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WebSocketService } from '../../service/websocket.service';
 import { StoreApp } from '../../store/app.store';
 
 @Component({
@@ -7,9 +8,9 @@ import { StoreApp } from '../../store/app.store';
   styleUrls: ['./layout.component.scss'],
 })
 export class CommonLayoutComponent implements OnInit {
-  constructor(public storeApp: StoreApp) {}
+  constructor(public storeApp: StoreApp, private socket: WebSocketService) {}
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.socket.send('123');
   }
 }
