@@ -15,6 +15,8 @@ import { AccordionModule } from 'primeng/accordion';
 import { CalendarModule } from 'primeng/calendar';
 import { DatepickerComponent } from './compoents/form/datepicker/datepicker.component';
 import { FormsModule } from '@angular/forms';
+import { CheckboxModule } from 'primeng/checkbox';
+import { CheckBoxComponent } from './compoents/form/checkbox/checkbox.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { FormsModule } from '@angular/forms';
     ProgressBarComponent,
     ExhausterInfoComponent,
     DatepickerComponent,
+    CheckBoxComponent,
   ],
   imports: [
     CommonModule,
@@ -37,6 +40,7 @@ import { FormsModule } from '@angular/forms';
     AccordionModule,
     CalendarModule,
     FormsModule,
+    CheckboxModule,
   ],
   exports: [
     ImageComponent,
@@ -45,6 +49,7 @@ import { FormsModule } from '@angular/forms';
     ProgressBarComponent,
     ExhausterInfoComponent,
     DatepickerComponent,
+    CheckBoxComponent,
   ],
 })
 export class SharedModule {}

@@ -1,0 +1,12 @@
+<div class="container">
+  <p-checkbox
+    [(ngModel)]="value"
+    [label]="label"
+    [trueValue]="trueValue"
+    [name]="name"
+  >
+<ng-template p-checkboxicon>
+
+</ng-template> </p-checkbox>
+  <span class="propValue" *ngIf="propValue">{{propValue}}</span>
+</div>

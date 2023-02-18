@@ -10,6 +10,7 @@ import { ChartModule } from 'primeng/chart';
 import { AccordionModule } from 'primeng/accordion';
 import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
+import { TreeModule } from 'primeng/tree';
 
 @NgModule({
   declarations: [SecondScreenComponent, GraphComponent],
@@ -23,6 +24,7 @@ import { FormsModule } from '@angular/forms';
     ChartModule,
     AccordionModule,
     CheckboxModule,
+    TreeModule,
   ],
 })
 export class SecondModule {}
