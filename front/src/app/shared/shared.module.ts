@@ -9,6 +9,9 @@ import { ImageComponent } from './compoents/form/image/image.component';
 import { MachineInfoComponent } from './compoents/machine-info/machine-info.component';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { ProgressBarComponent } from './compoents/progress-bar/progress-bar.component';
+import {ExhausterInfoComponent} from "./compoents/machine-info/exhauster-info/exhauster-info.component";
+import {DividerModule} from "primeng/divider";
+import {AccordionModule} from "primeng/accordion";
 
 @NgModule({
   declarations: [
@@ -17,6 +20,7 @@ import { ProgressBarComponent } from './compoents/progress-bar/progress-bar.comp
     BaeringInfoComponent,
     PropertyBearingComponent,
     ProgressBarComponent,
+    ExhausterInfoComponent
   ],
   imports: [
     CommonModule,
@@ -25,12 +29,15 @@ import { ProgressBarComponent } from './compoents/progress-bar/progress-bar.comp
     AngularSvgIconModule,
     PanelModule,
     ProgressBarModule,
+    DividerModule,
+    AccordionModule,
   ],
   exports: [
     ImageComponent,
     MachineInfoComponent,
     BaeringInfoComponent,
     ProgressBarComponent,
+    ExhausterInfoComponent
   ],
 })
 export class SharedModule {}
