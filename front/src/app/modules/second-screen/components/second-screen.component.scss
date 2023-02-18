@@ -1,18 +1,6 @@
 .wrapper {
   position: relative;
-  app-image ::ng-deep svg {
-    path {
-      display: block;
 
-      &:hover {
-        cursor: pointer;
-      }
-    }
-
-    .truba {
-      fill: aqua;
-    }
-  }
   .maslobak {
     position: absolute;
     left: 915px;
@@ -47,5 +35,63 @@
         width: 231px;
       }
     }
+  }
+}
+p-tabView ::ng-deep {
+  .p-tabview-nav {
+    float: right;
+    margin-bottom: 25px;
+    width: 230px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px;
+    border-radius: 4px;
+
+    li.p-highlight .p-tabview-nav-link {
+      background-color: rgb(240, 187, 78);
+      color: #000 !important;
+      border-radius: 5px;
+      border: 0px;
+    }
+
+    li a {
+      padding: 15px 10px !important;
+      height: 20px;
+      color: rgb(240, 187, 78) !important;
+      border: 0px !important;
+    }
+  }
+
+  .values {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    background-color: rgb(68, 79, 79);
+    color: #fff;
+    font-weight: 600;
+    padding: 0px 5px;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+
+  .amperage {
+    top: 330px;
+    left: 1336px;
+  }
+
+  .motor-amperage {
+    top: 354px;
+    left: 1336px;
+  }
+
+  .rotor-voltage {
+    top: 377px;
+    left: 1336px;
+  }
+
+  .starter-voltage {
+    top: 399px;
+    left: 1336px;
   }
 }

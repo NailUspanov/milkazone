@@ -8,19 +8,17 @@ export class WebSocketService {
   private socket$: WebSocketSubject<any>;
 
   constructor() {
-    this.socket$ = webSocket('ws://localhost:8080/');
+    this.socket$ = webSocket('ws://localhost:8000/ws');
   }
 
   subscribe() {
     this.socket$.subscribe();
   }
 
-  isOPen() {}
-
   send(message: any) {
     this.socket$.subscribe(
       (msg) => {
-        console.log('Message from server?', msg);
+        console.log('Message from server', msg);
       },
       (err) => {
         console.log('Error with websocket connection:', err);

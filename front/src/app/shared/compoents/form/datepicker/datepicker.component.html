@@ -1,6 +1,13 @@
-<p-calendar [(ngModel)]="value" [selectionMode]="'range'" [showIcon]="true">
+<p-calendar
+  [(ngModel)]="value"
+  [selectionMode]="'range'"
+  placeholder="Выберите дату"
+  [showIcon]="true"
+  [showTime]="true"
+  dateFormat="dd.mm.yy, "
+>
   <ng-template pTemplate="footer">
     <div class="time"></div>
     <div class="now"></div>
-</ng-template>
+  </ng-template>
 </p-calendar>

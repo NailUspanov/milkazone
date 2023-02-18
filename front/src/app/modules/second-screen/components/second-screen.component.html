@@ -29,6 +29,21 @@
         [maxScale]="6"
         [isScale]="true"
       ></app-progress-bar>
+
+      <div class="values amperage">
+        {{mainDriveModel.amperage}}
+      </div>
+      <div class="values motor-amperage">
+        {{mainDriveModel.motorAmperage}}
+      </div>
+      <div class="values rotor-voltage">
+        {{mainDriveModel.rotorVoltage}}
+      </div>
+      <div class="values starter-voltage">
+        {{mainDriveModel.starterVoltage}}
+      </div>
+
+
     </div>
   </p-tabPanel>
   <p-tabPanel header="График">

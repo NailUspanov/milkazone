@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MainDriveModel } from 'src/app/core/model/agglomashia';
 import { BearingInfo } from 'src/app/core/model/bearing-info';
 
 @Component({
@@ -246,6 +247,12 @@ export class SecondScreenComponent implements OnInit {
   bearingsHardCode: BearingInfo[] | null = null;
   temperature: number = 45;
   pressure: number = 2.5;
-
   maslobak: number = 34.3;
+
+  mainDriveModel: MainDriveModel = {
+    amperage: 100,
+    motorAmperage: 100,
+    rotorVoltage: 100,
+    starterVoltage: 100,
+  };
 }

@@ -8,8 +8,6 @@ export class Agglomashia {
   replacementDaysLeft: number;
   prediction: number;
   exgauster: ExgausterModel[];
-  //   image: ModelImage; ???
-  //   warnings: WarningModel[];
 
   constructor(source: any) {
     this.id = source.id;
@@ -17,8 +15,6 @@ export class Agglomashia {
     this.date = source.date;
     this.replacementDaysLeft = source.replacementDaysLeft;
     this.prediction = source.prediction;
-    // this.image = source.image;
-    // this.warnings = mapMany(WarningModel)(source.warnings);
     this.exgauster = mapMany(ExgausterModel)(source.exgauster);
   }
 }

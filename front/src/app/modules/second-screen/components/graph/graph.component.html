@@ -4,28 +4,11 @@
 <p-panel header="Эксгаусстер № ">
   <div class="wrapper">
     <div class="options">
-      <p-accordion [multiple]="true">
-        <p-accordionTab header="Подшипники">
-          <p-accordionTab header="1 ПС">
-            <div class="tab">
-              <p-checkbox
-                name="first-bearing"
-                label="T, °C"
-                [binary]="true"
-                [(ngModel)]="options.firstBearing.temp"
-              ></p-checkbox>
-              <p-checkbox
-                name=""
-                label=""
-                [binary]="true"
-                [(ngModel)]="options"
-              ></p-checkbox>
-            </div>
-          </p-accordionTab>
-        </p-accordionTab>
-        <p-accordionTab header="Header 2"> Content 2 </p-accordionTab>
-        <p-accordionTab header="Header 3"> Content 3 </p-accordionTab>
-      </p-accordion>
+    <!-- <p-tree [value]="nodes">
+      <ng-template let-node pTemplate="url">
+        <a [href]="node.data">{{node.label}}</a>
+      </ng-template>
+    </p-tree> -->
     </div>
 
     <div class="chart-container">

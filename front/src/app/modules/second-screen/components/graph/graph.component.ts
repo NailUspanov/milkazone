@@ -114,13 +114,4 @@ export class GraphComponent implements OnInit {
       ],
     };
   }
-
-  options: any = {
-    firstBearing: {
-      temp: false,
-      vert: false,
-      goriz: false,
-      axios: false,
-    },
-  };
 }

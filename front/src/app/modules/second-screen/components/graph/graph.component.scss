@@ -1,11 +1,52 @@
+.filters {
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  ::ng-deep {
+    p-calendar span {
+      height: 20px;
+
+      input {
+        background-color: rgb(240, 187, 78);
+        padding: 0px 10px;
+        height: 24px;
+        color: #000;
+        border: 0px;
+        font-weight: 600;
+        width: 290px;
+
+        &:enabled {
+          border-color: none;
+        }
+        &:focus {
+          box-shadow: none;
+          border: 0px;
+        }
+      }
+
+      button {
+        padding: 12px 10px;
+        background: rgb(240, 187, 78);
+        border: 0px;
+
+        span {
+          color: #000;
+        }
+        &:hover {
+          background-color: rgb(240, 187, 78);
+        }
+      }
+    }
+  }
+}
+
 .wrapper {
   width: 100%;
 
   .options {
-
-    .tab{
-        display: flex;
-        flex-direction: column;
+    .tab {
+      display: flex;
+      flex-direction: column;
     }
   }
 
