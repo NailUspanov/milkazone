@@ -1,6 +1,39 @@
 <div class="wrapper">
-  <app-machine-info></app-machine-info>
-  <app-machine-info></app-machine-info>
-  <app-machine-info></app-machine-info>
-  <app-machine-info></app-machine-info>
+  <div class="legend">
+    <div class="item">
+      <div class="icon">
+        <app-image src="/assets/icons/temperature.svg"></app-image>
+      </div>
+      Температура
+    </div>
+    <div class="item">
+      <div class="icon">
+        <app-image src="/assets/icons/vibration.svg"></app-image>
+      </div>
+      Вибрация
+    </div>
+    <div class="item">
+      <div class="icon">
+        <app-image src="/assets/icons/oil.svg"></app-image>
+      </div>
+      Уровень масла
+    </div>
+    <div class="item">
+      <div class="icon">
+        <app-image src="/assets/icons/rectangle.svg" [fill]="'#F9A823'"></app-image>
+      </div>
+      Предупреждение
+    </div>
+    <div class="item">
+      <div class="icon">
+        <app-image src="/assets/icons/rectangle.svg" [fill]="'#E32112'"></app-image>
+      </div>
+      Опасность
+    </div>
+  </div>
+  <div class="container">
+    <app-machine-info></app-machine-info>
+    <app-machine-info></app-machine-info>
+    <app-machine-info></app-machine-info>
+  </div>
 </div>

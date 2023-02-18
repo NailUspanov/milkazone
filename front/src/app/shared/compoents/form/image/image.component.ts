@@ -19,6 +19,7 @@ export class ImageComponent {
   @Input() lazy: boolean = false;
   @Input() height?: number | string;
   @Input() width?: number | string;
+  @Input() fill?: string;
 
   get isSvg(): boolean {
     return this.src?.endsWith('.svg') || false;
